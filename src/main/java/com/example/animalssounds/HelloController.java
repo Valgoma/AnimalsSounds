@@ -25,21 +25,22 @@ public class HelloController {
     private TextArea speech;
     @FXML
     private ToggleGroup xxx;
-  //  Animal.AnimalType animal = Animal.AnimalType.Dog;
+    //  Animal.AnimalType animal = Animal.AnimalType.Dog;
 
     @FXML
-   void say(ActionEvent event) {
-
+    void say(ActionEvent event) {
         RadioButton selection = (RadioButton) xxx.getSelectedToggle();
-        if (selection == dog)
-            {
-                    speech.setText(Dog.dogSpeaks());}
+        Animal an = null;
+        if (selection == dog) {
+            an = new Dog("гав");
+        }
         if (selection == cat)
-                    speech.setText(Cat.catSpeaks());
+            an = new Cat("мурр");
         if (selection == rooster)
-                    speech.setText(Rooster.roosterSpeaks());
+            an = new Rooster("кукареку");
 
-            }
+        speech.setText(an.speak());
     }
+}
 
 
